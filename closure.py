@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import requests
 from time import sleep
 
@@ -9,6 +11,8 @@ class Request:
     def get(self, url):
         print('I will dispatch the GET request now.')
         res = requests.get(url)
+        # let's block the thread for some more time, to simulate a long-running
+        # request.
         sleep(2)
         print('Request finished. Calling the closure.')
         if self.closure:
